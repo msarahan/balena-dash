@@ -14,7 +14,6 @@ if [[ ! -z $SHOW_CURSOR ]] && [[ "$SHOW_CURSOR" -eq "1" ]]
   else
     export CURSOR='-- -nocursor'
     echo "Disabling cursor"
-    
 fi
 
 if [ ! -z ${CONFIG_MODE+x} ] && [ "$CONFIG_MODE" -eq "1" ]

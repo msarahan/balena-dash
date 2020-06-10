@@ -11,6 +11,13 @@ fi
 
 export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
+if [ -n "$TIMEZONE" ]; then
+  echo "${TIMEZONE}" > /etc/timezone
+  dpkg-reconfigure tzdata
+  # should be enough above... but let's do this too, just in case
+  ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
+
+fi
 
 sed -i -e 's/console/anybody/g' /etc/X11/Xwrapper.config
 echo "needs_root_rights=yes" >> /etc/X11/Xwrapper.config
