@@ -14,3 +14,5 @@ RUN wget -O tohora.tgz \
     "https://github.com/mozz100/tohora/releases/download/v"$TOHORA_VERSION"/tohora_"$TOHORA_VERSION"_Linux_armv5.tar.gz" \
     && tar xzf tohora.tgz \
     && rm tohora.tgz
+
+RUN ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
